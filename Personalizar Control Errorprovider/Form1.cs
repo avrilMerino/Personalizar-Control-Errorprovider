@@ -23,12 +23,12 @@ namespace Personalizar_Control_Errorprovider
         {
             if (string.IsNullOrWhiteSpace(tbNombre.Text))
             {
-                errorProvider1.Icon = Properties.Resources.cerrar;
+                errorProvider1.Icon = new System.Drawing.Icon(@"C:\Users\estudiante\Downloads\cerrar.ico");
                 errorProvider1.SetError(tbNombre, "El nombre no puede estar vacío");
             }
             else
             {
-                errorProvider1.Icon = Properties.Resources.abrir;
+                errorProvider1.Icon = new System.Drawing.Icon(@"C:\Users\estudiante\Downloads\ok.ico");
                 errorProvider1.SetError(tbNombre, "Correcto");
             }
         }
