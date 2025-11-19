@@ -18,7 +18,7 @@ namespace Personalizar_Control_Errorprovider
         }
 
 
-        //ErrorProvider en nombre
+        // ErrorProvider en nombre
         private void tbNombre_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbNombre.Text))
