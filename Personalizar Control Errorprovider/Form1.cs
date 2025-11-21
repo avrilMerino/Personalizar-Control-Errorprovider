@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq; //por si contiene un número
 
 namespace Personalizar_Control_Errorprovider
 {
@@ -18,24 +19,27 @@ namespace Personalizar_Control_Errorprovider
         }
 
 
-        // ErrorProvider en nombre
+        private void tbNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void tbNombre_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbNombre.Text))
+            //Si el textbox está vacío, mostramos el error de vacío
+            if (string.IsNullOrEmpty(tbNombre.Text))
             {
-                errorProvider1.Icon = new System.Drawing.Icon(@"C:\Users\estudiante\Downloads\cerrar.ico");
-                errorProvider1.SetError(tbNombre, "El nombre no puede estar vacío");
+                errorProvider1.SetError(this.tbNombre, "El nombre no puede estar vacío");
+
+            }else if (tbNombre.Text.Any(char.IsDigit)) //Si en el texto hay números el textbox se pondrá rojo el tb
+            {
+                tbNombre.BackColor = Color.Red;
             }
             else
             {
-                errorProvider1.Icon = new System.Drawing.Icon(@"C:\Users\estudiante\Downloads\ok.ico");
-                errorProvider1.SetError(tbNombre, "Correcto");
+                tbNombre.BackColor = SystemColors.Window;
+                errorProvider1.SetError(tbNombre, "");
             }
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-        }
-
     }
 }
